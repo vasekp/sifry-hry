@@ -8,6 +8,10 @@ Zde jsou k nalezení moje „živé“ šifry pro různé hry.
 
 Živá verze na https://tapani.cz/data/aXgs-MmVri7pt4Iv/svetylka.html.
 
+## Zlaté prasátko / Pac-Man (Vánoční Tápání 2021)
+
+Živá verze na https://tapani.cz/data/4A5yk8JAjtUsV1_X/pacman.html.
+
 ## Satelity (prolog hry Lavina 17, 2023)
 
 Živá verze na https://l17.lhotatrophy.net/satelity/satelity.html.

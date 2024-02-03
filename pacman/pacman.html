@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="pacman.css"/>
+    <script type="text/javascript" src="pacman.js"></script>
+    <title>Zlaté prasátko</title>
+  </head>
+  <body tabindex="-1">
+    <div id="score-row">
+      <span id="level" data-value="1">Level: </span>
+      <span id="score" data-value="0">Skóre: </span>
+    </div>
+    <div id="container">
+      <template id="wall"><div class="wall"></div></template>
+      <div class="obj" id="pacman">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-11 -11 22 22">
+          <path stroke="none" fill="currentcolor" fill-rule="even-odd">
+            <animate attributeName="d" dur="500ms" repeatCount="indefinite"
+                values="
+                  M 10,0 A 10,10,0,1,1,10,-.1 L 0,0 z M 2,-5 A 2,2,0,1,0,2,-4.9 z;
+                  M 8,6 A 10,10,0,1,1,8,-6 L 0 0 z M 1,-5 A 2,2,0,1,0,1,-4.9 z;
+                  M 10,0 A 10,10,0,1,1,10,-.1 L 0,0 z M 2,-5 A 2,2,0,1,0,2,-4.9 z">
+          </path>
+        </svg>
+      </div>
+      <template id="jidlo">
+        <div class="obj">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-11 -11 22 22">
+            <circle stroke="none" fill="currentcolor" cx="0" cy="0" r="3"/>
+          </svg>
+        </div>
+      </template>
+      <div class="obj" id="prasatko">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -11 12 12">
+          <path stroke-width="1" stroke="gold" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                d="M 10,-6 L 7,-8 7,-4 z M 7,-8 L 2,-8 2,-4 7,-4 M 1,-2 L 2,-4 3,-2 M 6,-2 L 7,-4 8,-2 M 2,-6 C 1,-7 1,-5 0,-6"/>
+        </svg>
+      </div>
+      <div id="banner" hidden>
+        <div class="trans" id="b-retry">
+          <span>Jde vám to... ale takhle to zlaté prasátko asi těžko uvidíte.</span>
+          <button id="retry">Zkusit znovu</button>
+        </div>
+        <div class="trans" id="b-level">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -9 12 9">
+              <defs>
+                <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%" gradientTransform="rotate(-20)" spreadMethod="repeat">
+                  <stop offset="0%" stop-color="#bf953f"/>
+                  <stop offset="20%" stop-color="#fcf6ba"/>
+                  <stop offset="40%" stop-color="#b38728"/>
+                  <stop offset="60%" stop-color="#fbf5b7"/>
+                  <stop offset="80%" stop-color="#aa771c"/>
+                  <stop offset="100%" stop-color="#bf953f"/>
+                  <animate attributeName="x1" dur="2000ms" repeatCount="indefinite" values="0%; 100%"/>
+                  <animate attributeName="x2" dur="2000ms" repeatCount="indefinite" values="100%; 200%"/>
+                </linearGradient>
+              </defs>
+              <path stroke-width="0.2" stroke="url(#gold)" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                 d="M 10,-6 L 7,-8 7,-4 z M 7,-8 L 2,-8 2,-4 7,-4 M 1,-2 L 2,-4 3,-2 M 6,-2 L 7,-4 8,-2 M 2,-6 C 1,-7 1,-5 0,-6"/>
+            </svg>
+          </span>
+          <button id="next">Další úroveň</button>
+        </div>
+        <div class="trans" id="b-win">
+          <span>Gratulujeme! Tajenku už jste si jistě přečetli – nebo ne?</span>
+          <button id="restart">Začít znovu</button>
+        </div>
+      </div>
+    </div>
+    <div id="controls">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100">
+        <g stroke="#09f" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(45)">
+          <circle cx="0" cy="0" r="40"/>
+          <path fill="#09f" d="
+            M 3,3 L 34,3 A 34,34,90,0,1,3,34 z
+            M -3,3 L -3,34 A 34,34,90,0,1,-34,3 z
+            M -3,-3 L -34,-3 A 34,34,90,0,1,-3,-34 z
+            M 3,-3 L 3,-34 A 34,34,90,0,1,34,-3 z
+            "/>
+        </g>
+      </svg>
+    </div>
+  </body>
+</html>
