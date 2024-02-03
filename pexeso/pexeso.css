@@ -1,0 +1,224 @@
+:root {
+  font-family: sans-serif;
+  font-size: 30px;
+  overflow-y: scroll;
+}
+
+:root, body {
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+:root[data-wait] {
+  overflow-y: hidden;
+}
+
+.wait {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+}
+
+.wait::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: white;
+  opacity: .7;
+  z-index: -1;
+}
+
+:root:not([data-wait]) .wait {
+  display: none;
+}
+
+@media (max-aspect-ratio: 5/9) {
+  #container { width: 100vw; height: 160vw; }
+  .karta { width: 20vw; height: 20vw; }
+}
+
+@media (min-aspect-ratio: 5/9) and (max-aspect-ratio: 1/1) {
+  #container { width: 55.5vh; height: 88.8vh; }
+  .karta { width: 11.1vh; height: 11.1vh; }
+}
+
+@media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 8/5) {
+  #container { width: 100vw; height: 62.5vw; }
+  .karta { width: 12.5vw; height: 12.5vw; }
+}
+
+@media (min-aspect-ratio: 8/6) {
+  #container { width: 133.3vh; height: 83.3vh; }
+  .karta { width: 16.6vh; height: 16.6vh; }
+}
+
+@media (min-width: 1000px) {
+  #container { width: 1000px; height: 625px; }
+  .karta { width: 125px; height: 125px; }
+}
+
+.karta {
+  position: relative;
+}
+
+.karta::before, .karta::after {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  left: 5%;
+  top: 5%;
+  box-sizing: border-box;
+  border: 2px solid #888;
+  display: flex;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform .5s, opacity .5s;
+  opacity: 1;
+}
+
+.karta::before {
+  transform: perspective(300px) rotateY(360deg);
+  content: '';
+  background: url('images/pexeso-zadni.png') 0% 0% / 100%;
+}
+
+.karta::after {
+  transform: perspective(300px) rotateY(180deg);
+  content: '';
+  background: url('images/pexeso-obrazky.jpg') 0% 0% / 500%;
+  background-position: inherit;
+}
+
+.karta[data-stav="otoc"]::before {
+  transform: perspective(300px) rotateY(540deg);
+}
+
+.karta[data-stav="otoc"]::after {
+  transform: perspective(300px) rotateY(360deg);
+}
+
+.karta[data-stav="pryc"]::before {
+  transform: perspective(300px) rotateY(540deg) scale(0.1);
+  opacity: 0;
+}
+
+.karta[data-stav="pryc"]::after {
+  transform: perspective(300px) rotateY(360deg) scale(0.1);
+  opacity: 0;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  margin: 0 auto;
+}
+
+#container.done {
+  transition: height 1s;
+  height: 0;
+  overflow: hidden;
+}
+
+#collection {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#collection > div {
+  display: flex;
+  margin-right: 1vw;
+}
+
+#skore {
+  width: 100%;
+  display: flex;
+  padding: 0 .5em;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#skore[hidden] {
+  display: none;
+}
+
+#skore > img {
+  height: 1em;
+  margin: 0 .3em;
+}
+
+#skore-clovek::after {
+  content: attr(data-skore);
+}
+
+#skore-pocitac {
+  margin-left: auto;
+}
+
+[data-hraje="pocitac"] #hlava-pocitac,
+[data-hraje="clovek"] #hlava-clovek {
+  box-shadow: 0px 0px 2px 2px #F84, inset 0px 0px 2px #F84;
+  border-radius: .2em;
+}
+
+@keyframes bub-show {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#bublina-pocitac {
+  position: absolute;
+  bottom: 120%;
+  right: 0;
+  padding: .2rem;
+  font-size: 70%;
+  text-align: right;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+}
+
+#bublina-pocitac.show {
+  animation: 3s .5s bub-show;
+}
+
+#bublina-pocitac::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: .3rem;
+  background: #DDDDFF;
+  opacity: .8;
+}
+
+#bublina-pocitac::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  margin-left: -.3rem;
+  border: .3rem solid transparent;
+  border-top-color: #DDDDFF;
+  opacity: .8;
+}
