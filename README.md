@@ -16,6 +16,10 @@ Zde jsou k nalezení moje „živé“ šifry pro různé hry.
 
 Živá verze na https://l17.lhotatrophy.net/satelity/satelity.html.
 
-## Vločky ([Vánoční Tápáni 2023](https://tapani.cz/2023/))
+## Vločky ([Vánoční Tápání 2023](https://tapani.cz/2023/))
 
 Živá verze na https://tapani.cz/data/Dj4FjTLqYYgXUdCPhb9osQ/vlocky.html.
+
+## Dárek ([Vánoční Tápání 2024](https://tapani.cz/2024/))
+
+Živá verze na https://tapani.cz/data/xrFbO5RRyPS85MgsrZjjAw/darek.html.
